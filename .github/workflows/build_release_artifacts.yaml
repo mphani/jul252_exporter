@@ -66,13 +66,14 @@
             gpg-public-key: ${{ secrets.GPG_PUBLIC_KEY }}
             gpg-key-pass: ${{ secrets.GPG_PASS }}
         - name: Sign packages
-          if: ${{ secrets.GPG_KEY_NAME_TMP != '' }}
           env:
             GPG_TTY: no-tty
             HOME: /home/runner
             GNUPGHOME: /home/runner/.gnupg
             GPG_KEY_NAME: ${{ secrets.GPG_KEY_NAME }}
+            GPG_KEY_NAME_TMP: ${{ secrets.GPG_KEY_NAME }}
             GPG_PASSPHRASE: ${{ secrets.GPG_PASS }}
+          if: ${{ env.GPG_KEY_NAME_TMP != '' }}
           run: |
             cd pkg/target
   
