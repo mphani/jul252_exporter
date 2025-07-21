@@ -71,7 +71,7 @@
             HOME: /home/runner
             GNUPGHOME: /home/runner/.gnupg
             GPG_KEY_NAME: ${{ secrets.GPG_KEY_NAME }}
-            GPG_KEY_NAME_TMP: ${{ secrets.GPG_KEY_NAME }}
+            GPG_KEY_NAME_TMP: ${{ secrets.GPG_KEY_NAME_TMP }}
             GPG_PASSPHRASE: ${{ secrets.GPG_PASS }}
           if: ${{ env.GPG_KEY_NAME_TMP != '' }}
           run: |
